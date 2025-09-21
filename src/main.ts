@@ -15,4 +15,4 @@ greeter('Bilal').then((message) => console.log(message));
 
 console.log('Greeter initiated.');
 
-console.log('This is a simple TypeScript application demonstrating asynchronous behavior with promises.');
+console.log('All Good : )');

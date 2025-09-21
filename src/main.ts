@@ -16,3 +16,5 @@ greeter('Bilal').then((message) => console.log(message));
 console.log('Greeter initiated.');
 
 console.log('Initiated CI / CD pipeline');
+
+console.log('All Good : )');

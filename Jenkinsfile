@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo "📥 Checking out repository..."
-                checkout scm
+                git branch: 'master', url: 'https://github.com/billypentester/jenkins'
                 echo "✅ Checkout completed."
             }
         }
@@ -13,17 +13,12 @@ pipeline {
         stage('Build') {
             steps {
                 echo "🏗️ Running build steps..."
-                // Add your build commands here, e.g.:
-                // sh 'npm install'
-                // sh 'npm run build'
             }
         }
 
         stage('Test') {
             steps {
                 echo "🧪 Running tests..."
-                // Add your test commands here, e.g.:
-                // sh 'npm test'
             }
         }
     }

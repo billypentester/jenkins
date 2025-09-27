@@ -1,5 +1,13 @@
 pipeline {
-    agent any
+    
+    agent {
+        docker { image 'node:22-alpine' } // Uses Node.js 18 inside a container
+    }
+
+    options {
+        timestamps()   // show timestamps in logs
+        ansiColor('xterm') // colored logs
+    }
 
     stages {
         stage('Checkout') {
@@ -10,15 +18,31 @@ pipeline {
             }
         }
 
+        stage('Install Dependencies') {
+            steps {
+                echo "📦 Installing dependencies..."
+                sh 'npm ci'   // faster & cleaner than `npm install`
+            }
+        }
+
+        stage('Lint') {
+            steps {
+                echo "🔎 Running lint checks..."
+                sh 'npm run lint'
+            }
+        }
+
         stage('Build') {
             steps {
-                echo "🏗️ Running build steps..."
+                echo "🏗️ Building project..."
+                sh 'npm run build'
             }
         }
 
         stage('Test') {
             steps {
                 echo "🧪 Running tests..."
+                // sh 'npm test'
             }
         }
     }

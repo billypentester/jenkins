@@ -1,10 +1,8 @@
 pipeline {
     
-    // agent {
-    //     docker { image 'node:22-alpine' } // Uses Node.js 18 inside a container
-    // }
-
-    agent any  // run on any available agent
+    agent {
+        docker { image 'node:22-alpine' } // Uses Node.js 18 inside a container
+    }
 
     options {
         timestamps()   // show timestamps in logs

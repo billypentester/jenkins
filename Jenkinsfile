@@ -1,7 +1,9 @@
 pipeline {
     
-    agent {
-        docker { image 'node:22-alpine' } // Uses Node.js 18 inside a container
+    agent any
+
+    tools { 
+        nodejs "NodeJS_20"   // must match the name you set in Global Tool Config
     }
 
     options {
